@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors())
 
 
-app.use("/api",protect,userRouter)
+app.use("/api",userRouter)
 app.use("/auth", authRoute)
 
 
