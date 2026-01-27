@@ -1,6 +1,4 @@
 import User from "../models/userModel.js";
-import Adhar from "../models/adharModel.js";
-import Name from "../models/nameModel.js";
 import mongoose from "mongoose";
 
 

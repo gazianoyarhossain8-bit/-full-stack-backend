@@ -3,7 +3,9 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from 'cors';
 import userRouter from './routes/userRouter.js';
-import multer from 'multer'
+import authRoute from './routes/authRoute.js'
+import protect from "./middleware/authMiddleware.js";
+
 dotenv.config();
 
 const app = express();
@@ -15,16 +17,15 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors())
 
 
-app.use("/api",userRouter)
+app.use("/api",protect,userRouter)
+app.use("/auth", authRoute)
 
 
-mongoose.connect(process.env.MONGO_URl)
-.then(() => console.log("Mongodb Compass connected"))
+mongoose.connect(process.env.MONGO_URI)
+.then(() => console.log("Mongodb Atlas connected"))
 .catch((err) =>{
   console.log('error',err)
 })
 
 
-app.listen(5000, () => {
-  console.log("Server running on 5000");
-});
+export default app;
