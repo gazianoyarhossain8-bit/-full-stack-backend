@@ -32,11 +32,11 @@ const connectDB = async () => {
 connectDB();
 
 // routes
-app.use("/api", userRouter);
+app.use("/api", protect, userRouter);
 app.use("/auth", authRoute);
 
 app.get("/", (req, res) => {
-  res.send("Backend running 🚀");
+  res.send("Backend running successfully");
 });
 
 export default app;
