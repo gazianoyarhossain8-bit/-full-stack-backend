@@ -32,7 +32,7 @@ const connectDB = async () => {
 connectDB();
 
 // routes
-app.use("/api", protect, userRouter);
+app.use("/api", userRouter);
 app.use("/auth", authRoute);
 
 app.get("/", (req, res) => {
