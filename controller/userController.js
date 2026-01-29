@@ -4,9 +4,15 @@ import mongoose from "mongoose";
 
 //get user
 const getUser = async (req, res) => {
-    const user = await User.find();
-    res.json(user)
-}
+  try {
+    const users = await User.find();
+    res.status(200).json(users);
+  } catch (error) {
+    console.error("GET USERS ERROR:", error);
+    res.status(500).json({ message: error.message });
+  }
+};
+
 
 
 // create use
