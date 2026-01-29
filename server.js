@@ -4,8 +4,6 @@ import dotenv from "dotenv";
 import cors from "cors";
 
 import userRouter from "./routes/userRouter.js";
-import authRoute from "./routes/authRoute.js";
-import protect from "./middleware/authMiddleware.js";
 
 dotenv.config();
 
@@ -33,7 +31,6 @@ connectDB();
 
 // routes
 app.use("/api", userRouter);
-app.use("/auth", authRoute);
 
 app.get("/", (req, res) => {
   res.send("Backend running successfully");
