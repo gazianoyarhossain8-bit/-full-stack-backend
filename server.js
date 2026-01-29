@@ -33,7 +33,7 @@ connectDB();
 app.use("/api", userRouter);
 
 app.get("/", (req, res) => {
-  res.send("Backend running successfully");
+  res.send("Backend is running...");
 });
 
 export default app;
