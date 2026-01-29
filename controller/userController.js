@@ -17,20 +17,20 @@ const createUser = async (req, res) => {
     console.log("BODY 👉", req.body);
     console.log("file", req.file)
 
-    const { name, age, gmail } = req.body; 
-    const image = req.file ?
-    req.file.filename : null;
+    const { name, age, email } = req.body; 
 
-    if (!name || !age || !gmail){
-      return
-res.status(400).json({message: "name & age is required"});
+    if (!name || !age || !email) {
+      return res.status(400).json({
+        message: "name, age & email required",
+      });
     }
+    
 
     const user = await User.create({
       name,
       age,
-      gmail,
-      image
+      email,
+    
     });
 
     res.status(201).json({
@@ -40,24 +40,6 @@ res.status(400).json({message: "name & age is required"});
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
-};
-
-    
-//get adhar
-const adharcard = async(req,res) => {
-    const adhar = await Adhar.find()
-    res.json(adhar)
-};
-//get allnames
-const allname = async(req, res) => {
-    try {
-        const name = await Name.find();
-        res.json(name)
-    }catch(error){
-        res.status(500).json({
-            message: error.message
-        })
-    }
 };
 //put user
 
@@ -98,11 +80,7 @@ res.json({
 
 export {
     getUser, 
-    createUser,
-adharcard,
-allname,
-update,
-userDelete};
+    createUser,update,userDelete};
 
 
 
