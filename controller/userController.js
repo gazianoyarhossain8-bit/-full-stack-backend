@@ -14,8 +14,8 @@ const createUser = async (req, res) => {
   try {
     
 
-    console.log("BODY 👉", req.body);
-    console.log("file", req.file)
+    console.log("BODY", req.body);
+  
 
     const { name, age, email } = req.body; 
 
