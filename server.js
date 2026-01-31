@@ -16,7 +16,6 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://full-stack-frontend-virid.vercel.app/",
     ],
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
