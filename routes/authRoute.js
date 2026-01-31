@@ -1,5 +1,5 @@
 import express from 'express';
-import {resisterUser, loginUser } from '../controller/jwtController.js';
+import {resisterUser, loginUser } from '../controller/authController.js';
 import  protect from '../middleware/authMiddleware.js';
 
 const router = express.Router()
