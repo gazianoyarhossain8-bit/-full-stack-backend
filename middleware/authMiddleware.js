@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import User from '../models/userModel.js';
+import Auth from '../models/authModel';
 
 const protect = async(req, res ,next) => {
     const authHeader =
@@ -12,8 +12,8 @@ const protect = async(req, res ,next) => {
 
                 const decoded = jwt.verify(token,
                     process.env.JWT_SECRET);
-                    req.user = await
-                    User.findById(decoded.userId).select("-password");
+                    req.auth = await
+                    Auth.findById(decoded.userId).select("-password");
                     next();
             }catch (error) {
                 res.status(401).json({
