@@ -18,12 +18,8 @@ const getUser = async (req, res) => {
 // create use
 const createUser = async (req, res) => {
   try {
-    
-
-    console.log("BODY", req.body);
-  
-
     const { name, age, email } = req.body; 
+    console.log("BODY", req.body);
 
     if (!name || !age || !email) {
       return res.status(400).json({
