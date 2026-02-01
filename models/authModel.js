@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 const authSchema = mongoose.Schema({
-    username: {
+    name: {
         type: String,
         required: true,
     },
