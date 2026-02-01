@@ -43,14 +43,14 @@ const loginUser = async(req, res) => {
     }
 
     const isMatch = await
-    bcrypt.compare(password, user.password);
+    bcrypt.compare(password, auth.password);
         if(!isMatch) {
             return res.status(400).json({
                 message: "invalid password"});
         }
 
         const token = jwt.sign(
-            {userId: user._id},
+            {authId:auth._id},
             process.env.JWT_SECRET,
             {expiresIn: "7d"}
         );
@@ -58,9 +58,9 @@ const loginUser = async(req, res) => {
         res.json({
             token,
             user:{
-                id: user._id,
-                name: user.name,
-                email: user.email
+                id: auth._id,
+                name: auth.name,
+                email: auth.email
             }
         })
 };
