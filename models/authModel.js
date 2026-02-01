@@ -12,6 +12,11 @@ const authSchema = mongoose.Schema({
         type: String,
         required: true,
     },
-})
+},
+    {
+        timestamps: true
+
+    }
+)
 const Auth = mongoose.model("auths", authSchema);
 export default Auth;
