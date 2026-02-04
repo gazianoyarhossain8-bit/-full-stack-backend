@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
+import cookieParser from "cookie-parser";
 
 import userRouter from "./routes/userRouter.js";
 import authRouter from "./routes/authRoute.js";
@@ -12,7 +13,11 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+app.use(cookieParser());
+app.use(cors(
+  {origin: "https://full-stack-frontend-virid.vercel.app",
+    credentials: true}
+));
                                                         
   
 
