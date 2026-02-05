@@ -64,7 +64,7 @@ const loginUser = async(req, res) => {
             token,
             authId: auth._id,
             message: "Login successful"
-        });
+        })
 };
 
 
