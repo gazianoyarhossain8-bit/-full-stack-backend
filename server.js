@@ -10,14 +10,14 @@ import authRouter from "./routes/authRoute.js";
 dotenv.config();
 
 const app = express();
-
+app.use(cors({
+  origin: "https://full-stack-frontend-virid.vercel.app",
+  credentials: true
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(cors({
-  origin: true,
-  credentials: true
-}));
+
 
                                                         
   
