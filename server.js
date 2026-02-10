@@ -6,7 +6,6 @@ import cookieParser from "cookie-parser";
 
 import userRouter from "./routes/userRouter.js";
 import authRouter from "./routes/authRoute.js";
-import imageStorage from "./routes/imageRoute.js";
 
 
 dotenv.config();
@@ -18,7 +17,6 @@ app.use(cors({
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use("/images", express.static("images"));
 app.use(cookieParser());
 
 
@@ -45,7 +43,7 @@ connectDB();
 // routes
 app.use("/api", userRouter);
 app.use("/auth", authRouter);
-app.use("/images", imageStorage);
+
 
 app.get("/", (req, res) => {
   res.send("Backend is running...");
