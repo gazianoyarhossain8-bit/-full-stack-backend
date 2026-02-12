@@ -34,6 +34,7 @@ const resisterUser = async (req, res) => {
 //Login
 
 const loginUser = async(req, res) => {
+  try {
     const {email, password} = req.body;
     const auth = await Auth.findOne({email});
 
@@ -68,6 +69,10 @@ const loginUser = async(req, res) => {
             authId: auth._id,
             message: "Login successful"
         })
+  } catch (error) { 
+    console.log("login error:", error);  
+     res.status(500).json({ message: error.message });
+  }
 };
 
 
